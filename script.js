@@ -29,9 +29,7 @@ function playRound(playerSelection, computerSelection) {
   //playerSelection parameter should be case-insensitive, change user input to all lowercase to be able to match a computerSelection choice
   playerSelection = playerSelection.toLowerCase();
 
-  //return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
-  //write conditional that determines winner and alters scores
-
+  //return a string that declares the winner of the round, alter scores
   if (playerSelection === "rock") {
     if (computerSelection === "rock") {
       console.log(`Computer also plays rock. It's a tie this round!`);
@@ -74,6 +72,8 @@ function playGame() {
   for (let i = 0; i < 5; i++) {
     playRound(playerSelection, computerSelection);
   }
+
+  console.log(scores);
 
   //console.log winner at end
   if (scores["playerScore"] > scores["computerScore"]) {
