@@ -8,8 +8,9 @@ let scores = {
 
 function getComputerSelection() {
   //randomly return either rock, paper, or scissors
-  //use Math.random to get 0, 1, or 2, use a conditional to assign 'rock', 'paper', or 'scissors' value to computerSelection based on random number
+
   computerSelection = Math.floor(Math.random() * 3);
+
   if (computerSelection === 0) {
     computerSelection = "rock";
   } else if (computerSelection === 1) {
@@ -17,19 +18,19 @@ function getComputerSelection() {
   } else if (computerSelection === 2) {
     computerSelection = "scissors";
   }
-  //return computerSelection value
+
   return computerSelection;
 }
 
 function playRound(playerSelection, computerSelection) {
-  //assign computerChoice to variable
+  //generate random computer selection
   computerSelection = getComputerSelection();
-  //use prompt() to get input from user
+  //use prompt() to get input from user and store
   playerSelection = prompt("Rock, paper, or scissors?");
   //playerSelection parameter should be case-insensitive, change user input to all lowercase to be able to match a computerSelection choice
   playerSelection = playerSelection.toLowerCase();
 
-  //return a string that declares the winner of the round, alter scores
+  //return a string that declares the winner of the round; alter the scores
   if (playerSelection === "rock") {
     if (computerSelection === "rock") {
       console.log(`Computer also plays rock. It's a tie this round!`);
@@ -68,14 +69,15 @@ function playRound(playerSelection, computerSelection) {
 function playGame() {
   //play 5 rounds, keep score, say winner at end
 
-  //do 5 times
+  //play 5 times
   for (let i = 0; i < 5; i++) {
     playRound(playerSelection, computerSelection);
   }
 
+  //show the player the final scores
   console.log(scores);
 
-  //console.log winner at end
+  //report winner at end
   if (scores["playerScore"] > scores["computerScore"]) {
     console.log("You win!!!!!!!");
   } else if (scores["playerScore"] < scores["computerScore"]) {
