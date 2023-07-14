@@ -1,4 +1,4 @@
-//initialize variables
+//initialize variables whose values will change throughout gameplay
 let computerSelection;
 let playerSelection;
 let scores = {
@@ -6,9 +6,8 @@ let scores = {
   playerScore: 0,
 };
 
+//randomly return either rock, paper, or scissors; 3 options, so limit random numbers to 0, 1, and 2
 function getComputerSelection() {
-  //randomly return either rock, paper, or scissors
-
   computerSelection = Math.floor(Math.random() * 3);
 
   if (computerSelection === 0) {
@@ -22,15 +21,16 @@ function getComputerSelection() {
   return computerSelection;
 }
 
+//runs single round of the game
 function playRound(playerSelection, computerSelection) {
-  //generate random computer selection
+  //generate new random computer selection
   computerSelection = getComputerSelection();
-  //use prompt() to get input from user and store
+  //use prompt() to get new input from user
   playerSelection = prompt("Rock, paper, or scissors?");
-  //playerSelection parameter should be case-insensitive, change user input to all lowercase to be able to match a computerSelection choice
+  //playerSelection parameter should be case-insensitive; change user input to all lowercase to be able to match a computerSelection choice
   playerSelection = playerSelection.toLowerCase();
 
-  //return a string that declares the winner of the round; alter the scores
+  //log to console a string that declares the winner of the round; update the scores
   if (playerSelection === "rock") {
     if (computerSelection === "rock") {
       console.log(`Computer also plays rock. It's a tie this round!`);
@@ -62,10 +62,11 @@ function playRound(playerSelection, computerSelection) {
       scores["playerScore"]++;
     }
   }
-
+  //return updated scores object so winner can be reported at end of game in playGame()
   return scores;
 }
 
+//runs entire game
 function playGame() {
   //play 5 rounds, keep score, say winner at end
 
@@ -77,7 +78,7 @@ function playGame() {
   //show the player the final scores
   console.log(scores);
 
-  //report winner at end
+  //log winner to console at end
   if (scores["playerScore"] > scores["computerScore"]) {
     console.log("You win!!!!!!!");
   } else if (scores["playerScore"] < scores["computerScore"]) {
@@ -87,4 +88,5 @@ function playGame() {
   }
 }
 
+//initiates entire game
 playGame();
