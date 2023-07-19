@@ -43,6 +43,14 @@ const results = document.createElement("div");
 results.textContent = "";
 container.appendChild(results);
 
+let runningScore = document.createElement("div");
+runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
+container.appendChild(runningScore);
+
+let finalScore = document.createElement("div");
+finalScore.textContent = "";
+container.appendChild(finalScore);
+
 //runs single round of the game
 function playRound(e, computerSelection) {
   //generate new random computer selection
@@ -53,64 +61,63 @@ function playRound(e, computerSelection) {
   //playerSelection parameter should be case-insensitive; change user input to all lowercase to be able to match a computerSelection choice
   playerSelection = playerSelection.toLowerCase();
 
-  //log to console a string that declares the winner of the round; update the scores
+  //don't play any more if one player already has 5 points
+  if (scores.playerScore === 5 || scores.computerScore === 5) {
+    return;
+  }
+
+  //update results div with a string that declares the winner of the round; update the scores
   if (playerSelection === "rock") {
     if (computerSelection === "rock") {
       results.textContent += `Computer also plays rock. It's a tie this round!`;
+      runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     } else if (computerSelection === "paper") {
       results.textContent += "Computer plays paper. Computer wins this round!";
       scores["computerScore"]++;
+      runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     } else if (computerSelection === "scissors") {
       results.textContent += "Computer plays scissors. You win this round!";
       scores["playerScore"]++;
+      runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     }
   } else if (playerSelection === "paper") {
     if (computerSelection === "paper") {
       results.textContent += `Computer also plays paper. It's a tie this round!`;
+      runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     } else if (computerSelection === "scissors") {
       results.textContent +=
         "Computer plays scissors. Computer wins this round!";
       scores["computerScore"]++;
+      runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     } else if (computerSelection === "rock") {
       results.textContent += "Computer plays rock. You win this round!";
       scores["playerScore"]++;
+      runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     }
   } else if (playerSelection === "scissors") {
     if (computerSelection === "scissors") {
       results.textContent += `Computer also plays scissors. It's a tie this round!`;
+      runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     } else if (computerSelection === "rock") {
       results.textContent += "Computer plays rock. Computer wins this round!";
       scores["computerScore"]++;
+      runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     } else if (computerSelection === "paper") {
       results.textContent += "Computer plays paper. You win this round!";
       scores["playerScore"]++;
+      runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     }
   }
-  //return updated scores object so winner can be reported at end of game in playGame()
-  return scores;
+
+  //play until someone has 5 points
+  if (scores.playerScore === 5 || scores.computerScore === 5) {
+    //log winner to console at end
+    if (scores["playerScore"] > scores["computerScore"]) {
+      finalScore.textContent += "You win!!!!!!!";
+    } else if (scores["playerScore"] < scores["computerScore"]) {
+      finalScore.textContent += "You lose!!!!!!!";
+    } else if (scores["playerScore"] === scores["computerScore"]) {
+      finalScore.textContent += `It's a tie!!!!!!!!`;
+    }
+  }
 }
-
-// //runs entire game
-// function playGame() {
-//   //play 5 rounds, keep score, say winner at end
-
-//   //play 5 times
-//   // for (let i = 0; i < 5; i++) {
-//   //   playRound(playerSelection, computerSelection);
-//   // }
-
-//   //show the player the final scores
-//   console.log(scores);
-
-//   //log winner to console at end
-//   if (scores["playerScore"] > scores["computerScore"]) {
-//     console.log("You win!!!!!!!");
-//   } else if (scores["playerScore"] < scores["computerScore"]) {
-//     console.log("You lose!!!!!!!");
-//   } else if (scores["playerScore"] === scores["computerScore"]) {
-//     console.log(`It's a tie!!!!!!!!`);
-//   }
-// }
-
-// //initiates entire game
-// playGame();
