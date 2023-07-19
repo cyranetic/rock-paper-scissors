@@ -1,1 +1,1 @@
-This is a game! You have 5 rounds to play against the computer. Enter a guess at each prompt. Check the console for results. Thanks for playing!
+This is a game! Click either ROCK, PAPER, or SCISSORS to play against the computer. The first to get 5 points wins. Thanks for playing!
