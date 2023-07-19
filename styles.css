@@ -1,0 +1,22 @@
+body {
+  text-align: center;
+  background-image: url(./pexels-pavel-danilyuk-8111311.jpg);
+  background-size: 100vw;
+  padding-bottom: 50px;
+}
+
+button {
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+  font-size: 30px;
+  background-color: rgb(236, 200, 188);
+}
+
+div {
+  background-color: rgb(210, 242, 242);
+  width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 20px;
+}

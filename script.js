@@ -34,7 +34,7 @@ paperButton.textContent = "PAPER";
 container.appendChild(paperButton);
 paperButton.addEventListener("click", playRound);
 
-const scissorsButton = document.createElement("scissors");
+const scissorsButton = document.createElement("button");
 scissorsButton.textContent = "SCISSORS";
 container.appendChild(scissorsButton);
 scissorsButton.addEventListener("click", playRound);
@@ -130,11 +130,11 @@ function playRound(e, computerSelection) {
   if (scores.playerScore === 5 || scores.computerScore === 5) {
     //log winner to console at end
     if (scores["playerScore"] > scores["computerScore"]) {
-      finalScore.textContent += "You win!!!!!!!";
+      finalScore.textContent += "You win!!!!!!! :)";
     } else if (scores["playerScore"] < scores["computerScore"]) {
-      finalScore.textContent += "You lose!!!!!!!";
+      finalScore.textContent += "You lose!!!!!!! :(";
     } else if (scores["playerScore"] === scores["computerScore"]) {
-      finalScore.textContent += `It's a tie!!!!!!!!`;
+      finalScore.textContent += `It's a tie!!!!!!!! :|`;
     }
   }
 }
