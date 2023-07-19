@@ -71,9 +71,9 @@ function playGame() {
   //play 5 rounds, keep score, say winner at end
 
   //play 5 times
-  for (let i = 0; i < 5; i++) {
-    playRound(playerSelection, computerSelection);
-  }
+  // for (let i = 0; i < 5; i++) {
+  //   playRound(playerSelection, computerSelection);
+  // }
 
   //show the player the final scores
   console.log(scores);
