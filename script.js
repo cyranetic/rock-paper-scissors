@@ -57,8 +57,7 @@ function playRound(e, computerSelection) {
   computerSelection = getComputerSelection();
   //get playerSelection from button clicked
   playerSelection = e.target.textContent;
-  console.log(e.target.textContent);
-  //playerSelection parameter should be case-insensitive; change user input to all lowercase to be able to match a computerSelection choice
+  //playerSelection parameter should be case-insensitive; change to all lowercase to be able to match a computerSelection choice
   playerSelection = playerSelection.toLowerCase();
 
   //don't play any more if one player already has 5 points
