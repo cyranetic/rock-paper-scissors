@@ -39,6 +39,10 @@ scissorsButton.textContent = "SCISSORS";
 container.appendChild(scissorsButton);
 scissorsButton.addEventListener("click", playRound);
 
+const results = document.createElement("div");
+results.textContent = "";
+container.appendChild(results);
+
 //runs single round of the game
 function playRound(e, computerSelection) {
   //generate new random computer selection
@@ -52,32 +56,33 @@ function playRound(e, computerSelection) {
   //log to console a string that declares the winner of the round; update the scores
   if (playerSelection === "rock") {
     if (computerSelection === "rock") {
-      console.log(`Computer also plays rock. It's a tie this round!`);
+      results.textContent += `Computer also plays rock. It's a tie this round!`;
     } else if (computerSelection === "paper") {
-      console.log("Computer plays paper. Computer wins this round!");
+      results.textContent += "Computer plays paper. Computer wins this round!";
       scores["computerScore"]++;
     } else if (computerSelection === "scissors") {
-      console.log("Computer plays scissors. You win this round!");
+      results.textContent += "Computer plays scissors. You win this round!";
       scores["playerScore"]++;
     }
   } else if (playerSelection === "paper") {
     if (computerSelection === "paper") {
-      console.log(`Computer also plays paper. It's a tie this round!`);
+      results.textContent += `Computer also plays paper. It's a tie this round!`;
     } else if (computerSelection === "scissors") {
-      console.log("Computer plays scissors. Computer wins this round!");
+      results.textContent +=
+        "Computer plays scissors. Computer wins this round!";
       scores["computerScore"]++;
     } else if (computerSelection === "rock") {
-      console.log("Computer plays rock. You win this round!");
+      results.textContent += "Computer plays rock. You win this round!";
       scores["playerScore"]++;
     }
   } else if (playerSelection === "scissors") {
     if (computerSelection === "scissors") {
-      console.log(`Computer also plays scissors. It's a tie this round!`);
+      results.textContent += `Computer also plays scissors. It's a tie this round!`;
     } else if (computerSelection === "rock") {
-      console.log("Computer plays rock. Computer wins this round!");
+      results.textContent += "Computer plays rock. Computer wins this round!";
       scores["computerScore"]++;
     } else if (computerSelection === "paper") {
-      console.log("Computer plays paper. You win this round!");
+      results.textContent += "Computer plays paper. You win this round!";
       scores["playerScore"]++;
     }
   }
