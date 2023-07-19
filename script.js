@@ -21,12 +21,31 @@ function getComputerSelection() {
   return computerSelection;
 }
 
+//build html content
+const container = document.querySelector("body");
+
+const rockButton = document.createElement("button");
+rockButton.textContent = "ROCK";
+container.appendChild(rockButton);
+rockButton.addEventListener("click", playRound);
+
+const paperButton = document.createElement("button");
+paperButton.textContent = "PAPER";
+container.appendChild(paperButton);
+paperButton.addEventListener("click", playRound);
+
+const scissorsButton = document.createElement("scissors");
+scissorsButton.textContent = "SCISSORS";
+container.appendChild(scissorsButton);
+scissorsButton.addEventListener("click", playRound);
+
 //runs single round of the game
-function playRound(playerSelection, computerSelection) {
+function playRound(e, computerSelection) {
   //generate new random computer selection
   computerSelection = getComputerSelection();
-  //use prompt() to get new input from user
-  playerSelection = prompt("Rock, paper, or scissors?");
+  //get playerSelection from button clicked
+  playerSelection = e.target.textContent;
+  console.log(e.target.textContent);
   //playerSelection parameter should be case-insensitive; change user input to all lowercase to be able to match a computerSelection choice
   playerSelection = playerSelection.toLowerCase();
 
@@ -66,27 +85,27 @@ function playRound(playerSelection, computerSelection) {
   return scores;
 }
 
-//runs entire game
-function playGame() {
-  //play 5 rounds, keep score, say winner at end
+// //runs entire game
+// function playGame() {
+//   //play 5 rounds, keep score, say winner at end
 
-  //play 5 times
-  // for (let i = 0; i < 5; i++) {
-  //   playRound(playerSelection, computerSelection);
-  // }
+//   //play 5 times
+//   // for (let i = 0; i < 5; i++) {
+//   //   playRound(playerSelection, computerSelection);
+//   // }
 
-  //show the player the final scores
-  console.log(scores);
+//   //show the player the final scores
+//   console.log(scores);
 
-  //log winner to console at end
-  if (scores["playerScore"] > scores["computerScore"]) {
-    console.log("You win!!!!!!!");
-  } else if (scores["playerScore"] < scores["computerScore"]) {
-    console.log("You lose!!!!!!!");
-  } else if (scores["playerScore"] === scores["computerScore"]) {
-    console.log(`It's a tie!!!!!!!!`);
-  }
-}
+//   //log winner to console at end
+//   if (scores["playerScore"] > scores["computerScore"]) {
+//     console.log("You win!!!!!!!");
+//   } else if (scores["playerScore"] < scores["computerScore"]) {
+//     console.log("You lose!!!!!!!");
+//   } else if (scores["playerScore"] === scores["computerScore"]) {
+//     console.log(`It's a tie!!!!!!!!`);
+//   }
+// }
 
-//initiates entire game
-playGame();
+// //initiates entire game
+// playGame();
