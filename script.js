@@ -39,7 +39,7 @@ scissorsButton.textContent = "SCISSORS";
 container.appendChild(scissorsButton);
 scissorsButton.addEventListener("click", playRound);
 
-const results = document.createElement("div");
+let results = document.createElement("div");
 results.textContent = "";
 container.appendChild(results);
 
@@ -66,43 +66,61 @@ function playRound(e, computerSelection) {
   }
 
   //update results div with a string that declares the winner of the round; update the scores
+
   if (playerSelection === "rock") {
     if (computerSelection === "rock") {
-      results.textContent += `Computer also plays rock. It's a tie this round!`;
+      const parag = document.createElement("p");
+      parag.textContent += `Computer also plays rock. It's a tie this round!`;
+      results.appendChild(parag);
       runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     } else if (computerSelection === "paper") {
-      results.textContent += "Computer plays paper. Computer wins this round!";
+      const parag = document.createElement("p");
+      parag.textContent += "Computer plays paper. Computer wins this round!";
+      results.appendChild(parag);
       scores["computerScore"]++;
       runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     } else if (computerSelection === "scissors") {
-      results.textContent += "Computer plays scissors. You win this round!";
+      const parag = document.createElement("p");
+      parag.textContent += "Computer plays scissors. You win this round!";
+      results.appendChild(parag);
       scores["playerScore"]++;
       runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     }
   } else if (playerSelection === "paper") {
     if (computerSelection === "paper") {
-      results.textContent += `Computer also plays paper. It's a tie this round!`;
+      const parag = document.createElement("p");
+      parag.textContent += `Computer also plays paper. It's a tie this round!`;
+      results.appendChild(parag);
       runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     } else if (computerSelection === "scissors") {
-      results.textContent +=
-        "Computer plays scissors. Computer wins this round!";
+      const parag = document.createElement("p");
+      parag.textContent += "Computer plays scissors. Computer wins this round!";
+      results.appendChild(parag);
       scores["computerScore"]++;
       runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     } else if (computerSelection === "rock") {
-      results.textContent += "Computer plays rock. You win this round!";
+      const parag = document.createElement("p");
+      parag.textContent += "Computer plays rock. You win this round!";
+      results.appendChild(parag);
       scores["playerScore"]++;
       runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     }
   } else if (playerSelection === "scissors") {
     if (computerSelection === "scissors") {
-      results.textContent += `Computer also plays scissors. It's a tie this round!`;
+      const parag = document.createElement("p");
+      parag.textContent += `Computer also plays scissors. It's a tie this round!`;
+      results.appendChild(parag);
       runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     } else if (computerSelection === "rock") {
-      results.textContent += "Computer plays rock. Computer wins this round!";
+      const parag = document.createElement("p");
+      parag.textContent += "Computer plays rock. Computer wins this round!";
+      results.appendChild(parag);
       scores["computerScore"]++;
       runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     } else if (computerSelection === "paper") {
-      results.textContent += "Computer plays paper. You win this round!";
+      const parag = document.createElement("p");
+      parag.textContent += "Computer plays paper. You win this round!";
+      results.appendChild(parag);
       scores["playerScore"]++;
       runningScore.textContent = `Player: ${scores.playerScore}. Computer: ${scores.computerScore}.`;
     }
